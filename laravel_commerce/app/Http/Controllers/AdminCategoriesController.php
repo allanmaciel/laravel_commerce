@@ -26,9 +26,9 @@ class AdminCategoriesController extends Controller {
     {
         return view('welcome');
     }*/
-    public function categorias()
+    public function categories()
     {
         $categories = $this->categories->all();
-        return view('categorias', compact('categories'));
+        return view('categories', compact('categories'));
     }
 }

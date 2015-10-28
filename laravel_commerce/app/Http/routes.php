@@ -10,11 +10,21 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::pattern('admin', '[A-Za-z]+');
+Route::group(['prefix' => 'admin'], function() {
+    Route::group(['prefix' => 'categories'], function() {
+        Route::get('/', 'AdminCategoriesController@categories');
+
+    });
+
+Route::group(['prefix' => 'products'], function(){
+Route::get('/', 'AdminProductsController@products');
+
+    });
+});
 
 Route::get('/', 'WelcomeController@index');
 Route::get('exemplo', 'WelcomeController@exemplo');
-Route::get('admin/categories', 'AdminCategoriesController@categorias');
-Route::get('admin/products', 'AdminProductsController@produtos');
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',

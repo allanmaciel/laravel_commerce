@@ -25,9 +25,9 @@ class AdminProductsController extends Controller {
      {
          return view('welcome');
      }*/
-    public function produtos()
+    public function products()
     {
         $products = $this->products->all();
-        return view('produtos', compact('products'));
+        return view('products', compact('products'));
     }
 }
