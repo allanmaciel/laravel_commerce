@@ -30,4 +30,22 @@ class AdminProductsController extends Controller {
         $products = $this->products->all();
         return view('products', compact('products'));
     }
+
+    public function update()
+    {
+
+        return "Update Products";
+    }
+
+    public function delete()
+    {
+
+        return "Delete products";
+    }
+
+    public function edit()
+    {
+
+        return "Edit products";
+    }
 }

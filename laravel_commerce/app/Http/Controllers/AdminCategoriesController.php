@@ -31,4 +31,22 @@ class AdminCategoriesController extends Controller {
         $categories = $this->categories->all();
         return view('categories', compact('categories'));
     }
+
+    public function update()
+    {
+
+        return "Update Categories";
+    }
+
+    public function delete()
+    {
+
+        return "Delete Categories";
+    }
+
+    public function edit()
+    {
+
+        return "Edit Categories";
+    }
 }

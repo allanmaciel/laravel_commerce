@@ -10,15 +10,24 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::pattern('admin', '[A-Za-z]+');
-Route::group(['prefix' => 'admin'], function() {
-    Route::group(['prefix' => 'categories'], function() {
-        Route::get('/', 'AdminCategoriesController@categories');
+
+Route::group(['prefix' => 'admin'], function () {
+
+    Route::group(['prefix' => 'categories'], function () {
+
+        Route::get('', ['as' => 'admin.categories', 'uses' => 'AdminCategoriesController@categories']);
+        Route::get('update/', ['as' => 'admin.categories.update', 'uses' => 'AdminCategoriesController@update']);
+        Route::get('delete/', ['as' => 'admin.categories.delete', 'uses' => 'AdminCategoriesController@delete']);
+        Route::get('edit/', ['as' => 'admin.categories.edit', 'uses' => 'AdminCategoriesController@edit']);
+
 
     });
+    Route::group(['prefix' => 'products'], function () {
 
-Route::group(['prefix' => 'products'], function(){
-Route::get('/', 'AdminProductsController@products');
+        Route::get('', ['as' => 'admin.products', 'uses' => 'AdminProductsController@products']);
+        Route::get('update/', ['as' => 'admin.Products.update', 'uses' => 'AdminProductsController@update']);
+        Route::get('delete/', ['as' => 'admin.Products.delete', 'uses' => 'AdminProductsController@delete']);
+        Route::get('edit/', ['as' => 'admin.Products.edit', 'uses' => 'AdminProductsController@edit']);
 
     });
 });
